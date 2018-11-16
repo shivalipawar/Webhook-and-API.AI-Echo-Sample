@@ -27,7 +27,7 @@ restService.post("/echo", function(req, res) {
   });
 });
 
-app.post('/webhook',function(req,res){ 
+restService.post('/webhook',function(req,res){ 
 
 	console.log('Recieved a post request');
 	if(!req.body) return res.sendStatus(400)
