@@ -27,6 +27,43 @@ restService.post("/echo", function(req, res) {
   });
 });
 
+app.post('/webhook',function(req,res){ 
+
+	console.log('Recieved a post request');
+	if(!req.body) return res.sendStatus(400)
+	res.setHeader('Content-Type','application/json');
+	res.setHeader('applicationId','a10a93111cc44bb4');
+	console.log("Here's a post request from dialogflow");
+	console.log(req.body);
+	//console.log("Got parameteres from dialogFlow" +req.body.queryResult.parameters[]);
+	//var city = req.body.
+	var w = getjwtToken();
+	let response = "";
+	let responseObj ={
+		"fulfillmentText":response,
+		"fulfillmentMessages":[{"text":{"text":[w]}}],
+		"source":""
+	}
+	console.log("Here is the response to dialog flow" + responseObj);
+	return res.json(responseObj);
+})
+
+var result
+
+function cb(err,response,body){
+    if(err){console.log('error:'+ err);}
+    var token = JSON.stringify(response);
+    console.log('token'+token)
+}
+
+function getjwtToken(){
+    result =undefined;
+    var url ="https://www.eatonsecureconnect.com/m2m-eaton-web/rest/mobileUser/jwt/login"
+    console.log(url);
+    var req = request(url,cb);
+}
+
+
 restService.post("/audio", function(req, res) {
   var speech = "";
   switch (req.body.result.parameters.AudioSample.toLowerCase()) {
