@@ -20,7 +20,8 @@ restService.post("/echo", function(req, res) {
    // Call the weather API
   callEatonLoginApi().then((output) => {
     res.json({ 'fulfillmentText': output }); // Return the results of the weather API to Dialogflow
-  }).catch(() => {
+  }).catch((exec) => {
+    res.json({ 'fulfillmentText': exec });
     res.json({ 'fulfillmentText': `I don't know the weather but I hope it's good!` });
   });
 });
