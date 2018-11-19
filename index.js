@@ -13,7 +13,7 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.get('/', function (request, response) {
+restService.post('/', function (request, response) {
   response.send('Hello World!')
   response.json({ 'fulfillmentText': 'Welcome to hello world of eaton.' });
 })
