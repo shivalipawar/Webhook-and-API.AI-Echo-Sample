@@ -15,7 +15,7 @@ restService.use(bodyParser.json());
 
 restService.get('/', function (request, response) {
   response.send('Hello World!')
-  res.json({ 'fulfillmentText': 'Welcome to hello world of eaton.' });
+  response.json({ 'fulfillmentText': 'Welcome to hello world of eaton.' });
 })
 
 //For Eaton API
