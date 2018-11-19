@@ -13,7 +13,10 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-
+restService.get('/', function (request, response) {
+  response.send('Hello World!')
+  res.json({ 'fulfillmentText': 'Welcome to hello world of eaton.' });
+})
 
 //For Eaton API
 restService.post("/echo", function(req, res) {
@@ -34,7 +37,7 @@ function callEatonLoginApi () {
     console.log('API Request: ' + host + path);
 
     // Make the HTTP request to get the weather
-    http.get({path: path}, (res) => {
+    http.put({path: path}, (res) => {
       let body = ''; // var to store the response chunks
       res.setHeader('Content-Type','application/json');
       res.setHeader('applicationId','a10a93111cc44bb4');
