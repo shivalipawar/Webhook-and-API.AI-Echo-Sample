@@ -138,26 +138,26 @@ function callWeatherApi (city, date) {
   });
 }
 
-restService.post('/webhook',function(req,res){ 
+// restService.post('/webhook',function(req,res){ 
 
-	console.log('Recieved a post request');
-	if(!req.body) return res.sendStatus(400)
-	res.setHeader('Content-Type','application/json');
-	res.setHeader('applicationId','a10a93111cc44bb4');
-	console.log("Here's a post request from dialogflow");
-	console.log(req.body);
-	//console.log("Got parameteres from dialogFlow" +req.body.queryResult.parameters[]);
-	//var city = req.body.
-	var w = getjwtToken();
-	let response = "";
-	let responseObj ={
-		"fulfillmentText":response,
-		"fulfillmentMessages":[{"text":{"text":[w]}}],
-		"source":""
-	}
-	console.log("Here is the response to dialog flow" + responseObj);
-	return res.json(responseObj);
-})
+// 	console.log('Recieved a post request');
+// 	if(!req.body) return res.sendStatus(400)
+// 	res.setHeader('Content-Type','application/json');
+// 	res.setHeader('applicationId','a10a93111cc44bb4');
+// 	console.log("Here's a post request from dialogflow");
+// 	console.log(req.body);
+// 	//console.log("Got parameteres from dialogFlow" +req.body.queryResult.parameters[]);
+// 	//var city = req.body.
+// 	var w = getjwtToken();
+// 	let response = "";
+// 	let responseObj ={
+// 		"fulfillmentText":response,
+// 		"fulfillmentMessages":[{"text":{"text":[w]}}],
+// 		"source":""
+// 	}
+// 	console.log("Here is the response to dialog flow" + responseObj);
+// 	return res.json(responseObj);
+// })
 
 var result
 
